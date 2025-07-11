@@ -1,0 +1,16 @@
+{
+  "101": {
+    "firstName": "Petya",
+    "lastName": "Petrov",
+    "skills": ["Python", "Go"],
+    "blocked": true
+  },
+  "102": {
+    "firstName": "Ivan",
+    "lastName": "Ivanov",
+    "skills": ["Python", "C#", "Java"],
+    "blocked": false,
+    "additional": ["Infinity", "-Infinity", "NaN"],
+    "special": null
+  }
+}
