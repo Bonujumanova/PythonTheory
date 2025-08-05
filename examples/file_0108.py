@@ -127,8 +127,8 @@ else:
         for li in pictures:
             a = li.find_next("a")
 
-            name += 1
-
+            name = li.find_next("span", class_="walpapers__canvas")
+            print(name)
             link: str = a.get("href")
             if name not in pictures_description_catalog:
                 pictures_description_catalog[name] = link
