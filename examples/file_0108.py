@@ -12,6 +12,9 @@ from requests.exceptions import ConnectionError
 # from examples import abc
 
 url: str = "https://wallpaperscraft.ru/"
+# я
+pictures_url:str = ""
+
 
 try:
     response: Response = requests.get(url)
@@ -73,6 +76,7 @@ else:
         category_link: str = catalog.get(category)
         selected_category_url: str = f"{url}{category_link.lstrip()}"
         print(f"Выбрана категория '{category}' - {selected_category_url}")
+        pictures_url = selected_category_url
 
         time.sleep(1)
         try:
@@ -87,3 +91,46 @@ else:
             )
     else:
         print("[ERROR] Ресурс недоступен...")
+
+
+
+response = requests.get(pictures_url)
+name: int = 0
+
+try:
+    response: Response = requests.get(pictures_url)
+except ConnectionError:
+    print("[ERROR] Ошибка соединения...")
+except Exception as err:
+    print(f"Что-то пошло не так... {err}")
+else:
+    if response.status_code == 200:
+
+        soup = BeautifulSoup(response.text, "html.parser")
+        print(soup.title.text)
+
+        pictures = soup.find_all(
+            "ul",
+            class_ ="wallpapers__list"
+        )
+        print(len(pictures))
+
+        # print(pictures)
+
+        if not pictures:
+            raise ValueError("Не найдены категории")
+        pictures, *_ = pictures
+
+        pictures_description_catalog: dict = {}
+
+
+        for li in pictures:
+            a = li.find_next("a")
+
+            name += 1
+
+            link: str = a.get("href")
+            if name not in pictures_description_catalog:
+                pictures_description_catalog[name] = link
+        print(pictures_description_catalog)
+
