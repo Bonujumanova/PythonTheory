@@ -1,0 +1,34 @@
+{
+    "id": "123602246",
+    "premium": false,
+    "name": "Менеджер приема документов",
+    "department": null,
+    "has_test": false,
+    "response_letter_required": false,
+    "area": {
+        "id": "181",
+        "name": "Павлодар",
+        "url": "https://api.hh.ru/areas/181"
+    },
+    "salary": {
+        "from": 270000,
+        "to": 270000,
+        "currency": "KZT",
+        "gross": false
+    },
+    "salary_range": {
+        "from": 270000,
+        "to": 270000,
+        "currency": "KZT",
+        "gross": false,
+        "mode": {
+            "id": "MONTH",
+            "name": "За месяц"
+        },
+        "frequency": null
+    },
+    "type": {
+        "id": "open",
+        "name": "Открытая"
+    }
+}
